@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>VIDEO</title>
+    <script type="text/javascript" src="/static/js/jquery-1.12.1.min.js"></script>
+</head>
+<body>
+    <video style="width: 500px;height: 500px;" class="show_video" controls src="{{ handler.video_url }}"></video>
+    <div>
+        <div>video_url: <input class="video_url" type="" name=""></div>
+        <div><button class="get_video">submit</button></div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $("body").on("click",".get_video",function(e){
+        $.ajax({
+            "url":"/api/tool/video/get_one",
+            "data":{
+                "v_url":$(".video_url").val()
+            },
+            "dataType":"json",
+            "type":"POST",
+            "success":function(data){
+                console.log(data)
+                if(data.info=="ok"){
+                    $(".show_video").attr("src",data.path)
+                }
+            },
+            "error":function(data){
+                console.log(data)  
+            },
+        })
+    })
+</script>

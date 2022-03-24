@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>文章获取</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script type="text/javascript" src="/static/js/jquery-1.12.1.min.js"></script>
+    <style type="text/css">
+        .line{
+            margin: 5px;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .line_title{
+            font-size: 12px;
+            color: #666;
+        }
+        .line_input>input,.line_input>textarea,.line_author_info_name{
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-size: 14px;
+            width: -webkit-fill-available;
+        }
+        .line_btns_btn{
+            width: 100px;
+            height: 30px;
+            border-radius: 4px;
+            background: #f5c5c5;
+            color: white;
+            cursor: pointer;
+            border: 0px;
+            margin: 5px;
+        }
+        .line_images{
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px;
+        }
+        .line_images_div_img{
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+        .line_author_info{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .line_author_info_img{
+            width: 40px;
+            height: 40px;
+        }
+        .copy_plus{
+            margin: 2px 5px;
+            width: 60px;
+            height: 24px;
+            border-radius: 2px;
+            color: white;
+            background: #f5c5c5;
+            border: 0;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div style="display:none;">
+        <img id="cover_logo" src="/static/img/xhs_head_cover_logo.png?t={{ handler.time_now }}">
+    </div>
+    <div class="line">
+        <div class="line_title">小红书Json t</div>
+        <div class="line_input"><input type="" name="" data-name="json_file"></div>
+        <div class="line_btns">
+            <button class="line_btns_btn get_json">Get Json</button>
+            <button class="line_btns_btn make_video">Make Video</button>
+        </div>
+    </div>
+    <div class="line">
+        <div class="line_title">小红书分享地址</div>
+        <div class="line_input"><input type="" name="" data-name="short_link"></div>
+        <div class="line_btns">
+            <button class="line_btns_btn get_info">查询</button>
+        </div>
+    </div>
+    <div class="line">
+        <div class="line_title">作者信息<button class="copy_plus">copy</button></div>
+        <div class="line_author_info">
+            <div><img class="line_author_info_img" src="/static/img/loading.gif"></div>
+            <div><input class="line_author_info_name copy_plus_content"></div>
+        </div>
+    </div>
+    <div class="line">
+        <div class="line_title">原文标题<button class="copy_plus">copy</button></div>
+        <div class="line_input"><input type="" name="" data-name="article_title" class="copy_plus_content"></div>
+    </div>
+    <div class="line">
+        <div class="line_title">原文内容<button class="copy_plus">copy</button></div>
+        <div class="line_input"><textarea data-name="article_content" class="copy_plus_content"></textarea></div>
+    </div>
+    <div class="line">
+        <div class="line_title">原文图片</div>
+        <div class="line_images">
+            <div><img class="line_images_div_img" src="/static/img/loading.gif"></div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+<script type="text/javascript" src="/static/js/demo/article.js?t={{handler.time_now}}"></script>
